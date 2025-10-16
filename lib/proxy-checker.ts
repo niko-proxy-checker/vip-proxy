@@ -22,14 +22,19 @@ export interface CheckerSettings {
   soundNotification: boolean;
 }
 
+export type ProgressCallback = (proxies: Proxy[], progress: number) => void;
+
 export class ProxyChecker {
-  private proxies: Proxy[] = [];
+  private proxies: Proxy[];
   private settings: CheckerSettings;
   private isRunning = false;
   private isPaused = false;
+  private onProgress: ProgressCallback;
 
-  constructor(settings: CheckerSettings) {
+  constructor(proxies: Proxy[], settings: CheckerSettings, onProgress: ProgressCallback) {
+    this.proxies = proxies;
     this.settings = settings;
+    this.onProgress = onProgress;
   }
 
   setProxies(proxies: Proxy[]): void {
