@@ -510,7 +510,7 @@ export default function Home() {
             <SelectContent>
               <SelectItem value="all">{t.filters.all}</SelectItem>
               {countries.map(country => (
-                <SelectItem key={country} value={country || ""}>{country}</SelectItem>
+                <SelectItem key={country} value={country as string}>{country}</SelectItem>
               ))}
             </SelectContent>
           </Select>
