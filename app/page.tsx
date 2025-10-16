@@ -95,7 +95,7 @@ export default function Home() {
   }, [proxies, filter, countryFilter, speedFilter]);
 
   // Get unique countries
-  const countries = Array.from(new Set(proxies.filter(p => p.country).map(p => p.country as string)));
+  const countries = Array.from(new Set(proxies.filter(p => p.country).map(p => p.country).filter(Boolean)));
 
   // Calculate stats
   const stats = {
