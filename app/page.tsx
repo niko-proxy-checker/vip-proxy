@@ -75,7 +75,7 @@ export default function Home() {
     }
     
     if (countryFilter !== 'all') {
-      filtered = filtered.filter(p => p.countryCode === countryFilter);
+      filtered = filtered.filter(p => p.country === countryFilter);
     }
     
     if (speedFilter !== 'all') {
@@ -95,7 +95,7 @@ export default function Home() {
   }, [proxies, filter, countryFilter, speedFilter]);
 
   // Get unique countries
-  const countries = Array.from(new Set(proxies.filter(p => p.countryCode).map(p => p.countryCode)));
+  const countries = Array.from(new Set(proxies.filter(p => p.country).map(p => p.country)));
 
   // Calculate stats
   const stats = {
@@ -562,7 +562,7 @@ export default function Home() {
                     <TableCell>
                       {proxy.country && (
                         <div className="flex items-center gap-2">
-                          <span className="text-xl">{proxy.countryCode}</span>
+                          <span className="text-xl">{proxy.country}</span>
                           <span className="text-sm">{proxy.country}</span>
                         </div>
                       )}
