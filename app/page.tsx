@@ -551,7 +551,7 @@ export default function Home() {
                 </TableRow>
               ) : (
                 filteredProxies.map(proxy => (
-                  <TableRow key={proxy.id} className="table-row-hover">
+                  <TableRow key={proxy.ip} className="table-row-hover">
                     <TableCell className="font-mono">{proxy.ip}</TableCell>
                     <TableCell>{proxy.port}</TableCell>
                     <TableCell>
