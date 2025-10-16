@@ -509,9 +509,9 @@ export default function Home() {
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="all">{t.filters.all}</SelectItem>
-              {countries.map(country => (
-                <SelectItem key={country} value={country as string}>{country}</SelectItem>
-              ))}
+              {countries.map(country => country ? (
+                <SelectItem key={country} value={country}>{country}</SelectItem>
+              ) : null)}
             </SelectContent>
           </Select>
           
